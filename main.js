@@ -1,19 +1,6 @@
-// let result = document.querySelector('#result')
-// let add = document.querySelector('#add')
-// let minus = document.querySelector('#minus')
-
-// add.addEventListener('click', function() {
-//   let number =parseInt(result.innerText, 10)
-//   number += 1
-//   result.innerText = number
-// })
-
-// minus.addEventListener('click', function() {
-//   let number =parseInt(result.innerText, 10)
-//   number -= 1
-//   result.innerText = number
-// })
-
+// 1.使用h代替createElement
+// 2.减少变量
+let h = React.createElement
 let number = 0
 let onClickButton1 = () => {
   number += 1
@@ -27,12 +14,11 @@ let onClickButton2 = () => {
 render()
 
 function render() {
-  let span = React.createElement('span', { className: 'red' }, number)
-  let button1 = React.createElement('button', { onClick: onClickButton1 }, '+')
-  let button2 = React.createElement('button', { onClick: onClickButton2 }, '-')
-  let div = React.createElement(
-    'div', { className: 'parent' }, span, button1, button2
-  )
-  ReactDOM.render(div, document.querySelector('#root'))
+  ReactDOM.render(
+    h('div', { className: 'parent' },
+      h('span', { className: 'red' }, number),
+      h('button', { onClick: onClickButton1 }, '+'),
+      h('button', { onClick: onClickButton2 }, '-')
+    ), document.querySelector('#root'))
 }
 
