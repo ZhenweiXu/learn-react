@@ -13,12 +13,22 @@ let onClickButton2 = () => {
 
 render()
 
+// function render() {
+//   ReactDOM.render(
+//     h('div', { className: 'parent' },
+//       h('span', { className: 'red' }, number),
+//       h('button', { onClick: onClickButton1 }, '+'),
+//       h('button', { onClick: onClickButton2 }, '-')
+//     ), document.querySelector('#root'))
+// }
+
 function render() {
   ReactDOM.render(
-    h('div', { className: 'parent' },
-      h('span', { className: 'red' }, number),
-      h('button', { onClick: onClickButton1 }, '+'),
-      h('button', { onClick: onClickButton2 }, '-')
-    ), document.querySelector('#root'))
+    <div className='parent'>
+      <span className='red'>{number}</span>
+      <button onClick={onClickButton1}>+</button>
+      <button onClick={onClickButton2}>-</button>
+    </div>,
+    document.querySelector('#root'))
 }
 
