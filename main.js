@@ -1,6 +1,3 @@
-// 1.使用h代替createElement
-// 2.减少变量
-let h = React.createElement
 let number = 0
 let onClickButton1 = () => {
   number += 1
@@ -13,22 +10,36 @@ let onClickButton2 = () => {
 
 render()
 
-// function render() {
-//   ReactDOM.render(
-//     h('div', { className: 'parent' },
-//       h('span', { className: 'red' }, number),
-//       h('button', { onClick: onClickButton1 }, '+'),
-//       h('button', { onClick: onClickButton2 }, '-')
-//     ), document.querySelector('#root'))
-// }
+function App() {
+  return (
+    <div>
+      <Box1/>
+      <Box2/>
+    </div>
+  )
+}
 
-function render() {
-  ReactDOM.render(
+function Box1() {
+  return (
     <div className='parent'>
       <span className='red'>{number}</span>
       <button onClick={onClickButton1}>+</button>
       <button onClick={onClickButton2}>-</button>
-    </div>,
-    document.querySelector('#root'))
+    </div>
+  )
+}
+
+function Box2() {
+  return (
+    <div className='parent'>
+      <span className='red'>{number}</span>
+      <button onClick={onClickButton1}>+</button>
+      <button onClick={onClickButton2}>-</button>
+    </div>
+  )
+}
+
+function render() {
+  ReactDOM.render(<App/>, document.querySelector('#root'))
 }
 
