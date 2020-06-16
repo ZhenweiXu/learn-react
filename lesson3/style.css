@@ -1,0 +1,25 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  border: 1px solid red;
+  width: 800px;
+  margin: 0 auto;
+}
+
+.papa {
+  border: 1px solid red;
+  margin: 20px;
+  padding: 20px;
+}
+
+.son {
+  border: 1px solid green;
+  margin: 20px 0;
+  padding: 20px;
+}
