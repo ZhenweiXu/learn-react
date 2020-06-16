@@ -1,7 +1,17 @@
+// 数据
 var money = {
   amount: 1000000
 }
-
+var user = {
+  id: 12345,
+  name: 'jack'
+}
+// store
+var store = {
+  money,
+  user
+}
+// eventHub
 var fnLists = {}
 var eventHub = {
   trigger(eventName, data) {
@@ -22,8 +32,8 @@ var eventHub = {
 // 想花钱先告诉管家
 var housekeeper = {
   init() {
-    eventHub.on('我想花钱了', (data) => {
-      money.amount -= data
+    eventHub.on('我想花钱', (data) => { // subscribe
+      store.money.amount -= data // reducer
       render()
     })
   }
@@ -34,15 +44,15 @@ class App extends React.Component{
   constructor() {
     super()
     this.state = {
-      money: money
+      store: store
     }
   }
   render() {
     return (
       <div className="root">
         <div>App</div>
-        <BigPapa money={this.state.money}/>
-        <YoungPapa money={this.state.money}/>
+        <BigPapa money={this.state.store.money} user={this.state.store.user}/>
+        <YoungPapa money={this.state.store.money}/>
       </div>
     )
   }
@@ -90,7 +100,8 @@ class Son2 extends React.Component{
     super()
   }
   cost() {
-    eventHub.trigger('我想花钱了', 100)
+    // action
+    eventHub.trigger('我想花钱'/*action type */, 100) // payload
   }
   render() {
     return (
