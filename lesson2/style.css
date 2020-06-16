@@ -1,0 +1,24 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 32px;
+}
+.time {
+  margin: 0 20px;
+  text-align: center;
+}
+.track {
+  border-bottom: 2px solid black;
+}
+.player {
+  font-size: 32px;
+  padding: 0 32px
+}
+.playground {
+  background: greenyellow;
+}
